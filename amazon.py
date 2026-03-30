@@ -18,5 +18,25 @@ print(df.info())
 print("Duplicates in the dataset: ")
 print(df.duplicated().sum())
 
+#Summary statistics of the dataset
+print("Summary Statistics: ")
+print(df.describe())
+
+#Distribution of ratings
+plt.figure(figsize=(10,6))
+plt.bar(df["Rating"].value_counts().index,df["Rating"].value_counts().values)
+plt.xlabel("Ratings")
+plt.ylabel("Count")
+plt.title("Distribution of Ratings")
+plt.show()
+
+#Distribution of prices per category
+plt.figure(figsize=(12,8))
+sns.histplot(data = df, x = "Price (USD)",hue = "Category", multiple = "stack")
+plt.xlabel("Price (USD)")
+plt.ylabel("Count")
+plt.title("Distribution of Prices per Category")
+plt.show()
+
 
 
